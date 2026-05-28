@@ -560,6 +560,8 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     ];
 
+    const clampPercent = (value) => Math.min(100, Math.max(0, value));
+
     let mappedHoverStars = [];
     hoverData.forEach((constell) => {
       const ox = constell.offset ? constell.offset.x : 0;
@@ -568,8 +570,8 @@ document.addEventListener("DOMContentLoaded", () => {
       constell.stars.forEach((star, index) => {
         mappedHoverStars.push({
           ...star,
-          px: star.x + ox,
-          py: star.y + oy,
+          px: clampPercent(star.x + ox),
+          py: clampPercent(star.y + oy),
           constellationId: constell.id,
           constellationName: constell.name,
           index: index,
@@ -603,10 +605,10 @@ document.addEventListener("DOMContentLoaded", () => {
           const s1 = constell.stars[line[0]];
           const s2 = constell.stars[line[1]];
 
-          const x1 = ((s1.x + ox) / 100) * hoverCanvas.width;
-          const y1 = ((s1.y + oy) / 100) * hoverCanvas.height;
-          const x2 = ((s2.x + ox) / 100) * hoverCanvas.width;
-          const y2 = ((s2.y + oy) / 100) * hoverCanvas.height;
+          const x1 = (clampPercent(s1.x + ox) / 100) * hoverCanvas.width;
+          const y1 = (clampPercent(s1.y + oy) / 100) * hoverCanvas.height;
+          const x2 = (clampPercent(s2.x + ox) / 100) * hoverCanvas.width;
+          const y2 = (clampPercent(s2.y + oy) / 100) * hoverCanvas.height;
 
           hoverCtx.beginPath();
           hoverCtx.moveTo(x1, y1);
