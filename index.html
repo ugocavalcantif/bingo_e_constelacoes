@@ -1,242 +1,410 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Explore o Universo das Constelações & BINGO</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Space+Grotesk:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <!-- Animated Particles Background -->
     <canvas id="particles-bg"></canvas>
 
     <div class="stars-overlay"></div>
 
-    <nav class="navbar">
-        <div class="logo">BINGO<span>Space</span></div>
-        <ul class="nav-links">
-            <li><a href="#hero">Início</a></li>
-            <li><a href="#bingo-info">BINGO</a></li>
-            <li><a href="#constelacoes">Constelações</a></li>
-            <li><a href="#mapa-interativo">Mapa do Céu</a></li>
-            <li><a href="#curiosidades">Curiosidades</a></li>
-            <li><a href="#guia">Guia</a></li>
-        </ul>
+    <nav class="navbar" role="navigation" aria-label="Menu principal">
+      <div class="logo">BINGO<span>Space</span></div>
+      <button
+        type="button"
+        class="mobile-menu-toggle"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+      >
+        <i class="ri-menu-line"></i>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#hero">Início</a></li>
+        <li><a href="#bingo-info">BINGO</a></li>
+        <li><a href="#constelacoes">Constelações</a></li>
+        <li><a href="#mapa-interativo">Mapa do Céu</a></li>
+        <li><a href="#curiosidades">Curiosidades</a></li>
+        <li><a href="#guia">Guia</a></li>
+      </ul>
     </nav>
 
-    <!-- 1. Hero Section -->
-    <header id="hero" class="hero section-padding">
+    <main>
+      <!-- 1. Hero Section -->
+      <header id="hero" class="hero section-padding">
         <div class="hero-content fade-up">
-            <h1 class="glow-text">Explore o Universo das Constelações</h1>
-            <p class="subtitle">Descubra os segredos escondidos no céu noturno através da astronomia e da observação celeste. Uma jornada pelas estrelas começa aqui.</p>
-            <a href="#constelacoes" class="cta-btn">Descobrir Constelações <i class="ri-arrow-right-line"></i></a>
+          <h1 class="glow-text">Explore o Universo das Constelações</h1>
+          <p class="subtitle">
+            Descubra os segredos escondidos no céu noturno através da astronomia
+            e da observação celeste. Uma jornada pelas estrelas começa aqui.
+          </p>
+          <a href="#constelacoes" class="cta-btn"
+            >Descobrir Constelações <i class="ri-arrow-right-line"></i
+          ></a>
         </div>
-    </header>
+      </header>
 
-    <!-- BINGO Telescope Info -->
-    <section id="bingo-info" class="section-padding bingo-section">
+      <!-- BINGO Telescope Info -->
+      <section id="bingo-info" class="section-padding bingo-section">
         <div class="container fade-up">
-            <h2 class="section-title glow-text">O Telescópio BINGO</h2>
-            <div class="glass-card bingo-grid">
-                <div class="bingo-item">
-                    <i class="ri-satellite-line icon-glow"></i>
-                    <h3>O que é?</h3>
-                    <p>O BINGO (Baryon Acoustic Oscillations from Integrated Neutral Gas Observations) é um radiotelescópio inovador localizado na Paraíba, Brasil.</p>
-                </div>
-                <div class="bingo-item">
-                    <i class="ri-focus-3-line icon-glow"></i>
-                    <h3>Objetivo Científico</h3>
-                    <p>Detectar as Oscilações Acústicas de Bárions (BAO) mapeando a distribuição do hidrogênio neutro no universo para estudar a expansão cósmica.</p>
-                </div>
-                <div class="bingo-item">
-                    <i class="ri-radar-line icon-glow"></i>
-                    <h3>Como Funciona</h3>
-                    <p>Utiliza dois grandes espelhos e um conjunto de cornetas para captar sinais de rádio extremamente fracos do espaço profundo de forma contínua.</p>
-                </div>
-                <div class="bingo-item">
-                    <i class="ri-meteor-line icon-glow"></i>
-                    <h3>Energia Escura</h3>
-                    <p>Seus dados são cruciais para entendermos a Energia Escura, a força misteriosa que está acelerando a expansão do nosso universo.</p>
-                </div>
-                <div class="bingo-item full-width">
-                    <i class="ri-flag-2-line icon-glow"></i>
-                    <h3>Relevância para o Brasil</h3>
-                    <p>Coloca o Brasil na vanguarda da cosmologia mundial, desenvolvendo tecnologia de ponta nacional e formando novas gerações de cientistas no sertão nordestino.</p>
-                </div>
+          <h2 class="section-title glow-text">O Telescópio BINGO</h2>
+          <div class="glass-card bingo-grid">
+            <div class="bingo-item">
+              <i class="ri-satellite-line icon-glow"></i>
+              <h3>O que é?</h3>
+              <p>
+                O BINGO (Baryon Acoustic Oscillations from Integrated Neutral
+                Gas Observations) é um radiotelescópio inovador localizado na
+                Paraíba, Brasil.
+              </p>
             </div>
+            <div class="bingo-item">
+              <i class="ri-focus-3-line icon-glow"></i>
+              <h3>Objetivo Científico</h3>
+              <p>
+                Detectar as Oscilações Acústicas de Bárions (BAO) mapeando a
+                distribuição do hidrogênio neutro no universo para estudar a
+                expansão cósmica.
+              </p>
+            </div>
+            <div class="bingo-item">
+              <i class="ri-radar-line icon-glow"></i>
+              <h3>Como Funciona</h3>
+              <p>
+                Utiliza dois grandes espelhos e um conjunto de cornetas para
+                captar sinais de rádio extremamente fracos do espaço profundo de
+                forma contínua.
+              </p>
+            </div>
+            <div class="bingo-item">
+              <i class="ri-meteor-line icon-glow"></i>
+              <h3>Energia Escura</h3>
+              <p>
+                Seus dados são cruciais para entendermos a Energia Escura, a
+                força misteriosa que está acelerando a expansão do nosso
+                universo.
+              </p>
+            </div>
+            <div class="bingo-item full-width">
+              <i class="ri-flag-2-line icon-glow"></i>
+              <h3>Relevância para o Brasil</h3>
+              <p>
+                Coloca o Brasil na vanguarda da cosmologia mundial,
+                desenvolvendo tecnologia de ponta nacional e formando novas
+                gerações de cientistas no sertão nordestino.
+              </p>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- 2. Seção sobre constelações -->
-    <section id="constelacoes" class="section-padding">
+      <!-- 2. Seção sobre constelações -->
+      <section id="constelacoes" class="section-padding">
         <div class="container">
-            <h2 class="section-title fade-up glow-text">Constelações Famosas</h2>
-            <div class="cards-grid">
-                <!-- Órion -->
-                <div class="constellation-card glass-card fade-up">
-                    <div class="card-icon"><i class="ri-sword-line"></i></div>
-                    <h3>Órion</h3>
-                    <p class="history">Conhecido como o Caçador na mitologia grega. Uma das mais famosas do céu. Facilmente reconhecida pelas "Três Marias" (asterismo que forma o cinturão do caçador). Abriga a gigante superestrela vermelha Betelgeuse e a brilhante azul Rigel.</p>
-                    <div class="observe-info">
-                        <strong><i class="ri-calendar-event-line"></i> Melhor época:</strong> Verão (Hemisfério Sul)
-                    </div>
-                </div>
-                <!-- Ursa Maior -->
-                <div class="constellation-card glass-card fade-up">
-                    <div class="card-icon"><i class="ri-bear-smile-line"></i></div>
-                    <h3>Ursa Maior</h3>
-                    <p class="history">Uma das maiores e mais reconhecíveis do Hemisfério Norte. Sua parte mais famosa é o asterismo da "Concha" ou "Carroça". As duas estrelas da borda da concha apontam diretamente para a Estrela Polar (que indica o Norte).</p>
-                    <div class="observe-info">
-                        <strong><i class="ri-calendar-event-line"></i> Melhor época:</strong> Outono (Hemisfério Norte)
-                    </div>
-                </div>
-                <!-- Escorpião -->
-                <div class="constellation-card glass-card fade-up">
-                    <div class="card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512" style="filter: drop-shadow(0 0 15px rgba(129, 140, 248, 0.6));"><path fill="currentColor" d="M118.2 13.613c-9.34.05-18.525 2.977-25.878 9.2c-28.494-14.11-63.64.133-58.814 33.37C7.16 77.84 13.01 118.364 43.355 131.036c-.715 28.33 22.506 53.156 49.643 50.957c7.358 19.48 25.91 31.78 45.996 34.16q.15 3.53.63 7.235c-9.325 4.95-18.904 9.69-28.645 14.374l8.098 16.84c8.28-3.98 16.58-8.045 24.8-12.307c1.822 5.843 4.153 11.877 6.93 18.027c-9.202 4.788-18.57 9.436-28.048 14.037l8.16 16.814c9.49-4.607 18.984-9.31 28.394-14.195a240 240 0 0 0 11.393 18.067c-9.837 5.116-19.83 10.094-29.934 15.02l8.19 16.798c11.075-5.4 22.15-10.903 33.11-16.646a293 293 0 0 0 15.302 17.55c-12.022 6.36-24.303 12.478-36.713 18.54l8.203 16.794c14.22-6.947 28.442-14.04 42.432-21.567a270 270 0 0 0 14.6 12.547c-19.234 11.162-38.166 24.76-55.102 40.38l-4.783 4.41l2.478 6.017c6.126 14.866 12.37 27.647 19.33 38.534c16.73 43.73 117.658 67.51 169.87 49.974c-40.098-76.48-110.48-107.213-163.516-77.16a288 288 0 0 1-5.7-12.338c16.67-14.624 35.242-27.457 53.913-37.656c14.745 9.996 29.484 17.747 43.312 23.174a165 165 0 0 0 14.36-4.91c-5.082-4.966-10.262-10.56-15.505-16.832l14.34-11.985c6.706 8.026 13.247 14.75 19.41 20.267c9.148-5.032 17.394-10.79 24.644-17.03c-4.422-6.302-9.917-13.245-16.64-20.736l13.91-12.48c6.27 6.987 11.628 13.576 16.176 19.802c2.76-3.212 5.29-6.494 7.563-9.825c-2.275-9.77-6.05-20.19-11.212-30.927c4.547-14.812 10.333-29.638 17.244-43.776c4.26.62 8.324 1.297 12.215 2.03c-23.748 40.476 31.817 122.773 84.082 144.218c29.62-76.177 7.565-136.216-53.038-155.462c-13.592-4.834-29.27-8.007-47.555-10.31l-6.457-.815l-3.002 5.773c-6.094 11.72-11.37 23.9-15.847 36.21c-5.395-8.492-11.577-17.043-18.5-25.503a257 257 0 0 0 22.038-30.44l-15.903-9.816c-5.726 9.277-11.96 17.903-18.61 26a305 305 0 0 0-7.362-7.634a308 308 0 0 0-8.733-8.382a241 241 0 0 0 20.244-28.008l-15.892-9.83a221.6 221.6 0 0 1-18.477 25.58c-6-4.88-12.05-9.395-18.093-13.53a216 216 0 0 0 17.728-24.504l-15.875-9.86c-5.434 8.747-11.412 16.803-17.84 24.302c-6.575-3.778-13.08-7.073-19.443-9.856a175 175 0 0 0 13.912-19.146l-15.834-9.928c-5.074 8.093-10.74 15.45-16.895 22.223c-9.522-2.728-18.495-4.106-26.615-4.004c-.202.003-.398.017-.6.02c-15.792-17.983-44.215-24.07-67.113-15.15c-3.733-21.79-22.074-39.414-42.832-41.6c4.765-14.846 1.142-31.49-8.877-43.204c14.55-2 28.25-10.616 35.153-22.598c12.188 14.724 34.067 21.62 51.673 15.564c8.117 17.202 29.023 28.58 48.562 26.01c35.58 81.022 139.882 84.89 177.424 1.266c-36.924 23.267-66.726 3.737-89.6-26.473c-17.638-23.298-43.473-38.92-75.83-8.985c-10.208-15.318-30.848-23.5-49.33-18.993c-8.477-14.405-24.79-22.622-40.67-22.54z"/></svg>
-                    </div>
-                    <h3>Escorpião</h3>
-                    <p class="history">Típica do inverno no Hemisfério Sul, destaca-se por seu formato sinuoso que lembra o animal. Contém Antares, uma supergigante vermelha de brilho intenso. Na mitologia, está associada à morte de Órion.</p>
-                    <div class="observe-info">
-                        <strong><i class="ri-calendar-event-line"></i> Melhor época:</strong> Inverno (Hemisfério Sul)
-                    </div>
-                </div>
-                <!-- Cruzeiro do Sul -->
-                <div class="constellation-card glass-card fade-up">
-                    <div class="card-icon"><i class="ri-compass-3-line"></i></div>
-                    <h3>Cruzeiro do Sul</h3>
-                    <p class="history"> Fundamental para a localização geográfica no Hemisfério Sul, suas quatro principais estrelas formam o desenho de uma cruz. É muito importante para a navegação e é um dos principais símbolos estampados na bandeira do Brasil.</p>
-                    <div class="observe-info">
-                        <strong><i class="ri-calendar-event-line"></i> Melhor época:</strong> Outono/Inverno (Hemisfério Sul)
-                    </div>
-                </div>
-                <!-- Cassiopeia -->
-                <div class="constellation-card glass-card fade-up">
-                    <div class="card-icon"><i class="ri-vip-crown-line"></i></div>
-                    <h3>Cassiopeia</h3>
-                    <p class="history"> Localizada no Hemisfério Norte, possui um formato inconfundível de "W" ou "M", dependendo da época do ano. Fica próxima à Estrela Polar e é muito rica em aglomerados estelares e nuvens de gás devido à sua posição em relação à Via Láctea.</p>
-                    <div class="observe-info">
-                        <strong><i class="ri-calendar-event-line"></i> Melhor época:</strong> Outono (Hemisfério Norte)
-                    </div>
-                </div>
-                <!-- Leão -->
-                <div class="constellation-card glass-card fade-up">
-                    <div class="card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512" style="filter: drop-shadow(0 0 15px rgba(129, 140, 248, 0.6));"><path fill="currentColor" d="M123.885 20.447c-10.348.467-21.337 3.146-32.194 5.366l62.492 65.628l-21.645.188c-29.376.187-75.695 6.154-103.555 22.303l31.756 51.576l-40.625 21.098v56.577l46.54 26.32l-46.54 40.076v32.268c28.217-1.233 60.63.636 89.135-8.907l31.902-10.658l-21.828 25.586c-18.76 22-29.782 55.133-50.736 87.713c31.91-2.394 63.352-7.65 96.8-25.81l16.026-8.683l-9.746 77.124c26.333-12.19 52.103-28.923 71.178-49.055c22.683-23.94 35.713-50.49 33.36-72.71l-.074-.75c-18.488-12.687-32.26-31.173-39.236-54.18c-8.414-27.753-5.867-62.33 6.643-101.145c-26.406-4.04-46.536-14.637-57.307-30.11c-12.33-17.716-14.222-39.26-7.738-57.018s22.29-32.165 43.437-33.4c20.558-1.195 44.48 10.033 69.972 36.102c11.368 4.11 21.73 8.034 31.14 11.94c2.434-21.395-1.46-38.033-10.408-52.9c-8.41-13.975-23.217-26.43-41.1-38.582l4.27 42.888l-16.425-10.985C222.37 43.57 168.973 18.49 123.885 20.597l.002-.225zm100.387 77.997c-.436.008-.866 0-1.29 0h-.002c-13.54.785-22.545 9.105-26.937 21.135c-4.393 12.03-3.243 27.353 5.51 39.93c8.755 12.576 25.128 23.158 53.548 24.784l12.595.69l-4.344 11.827c-14.837 40.46-16.242 73.928-8.577 99.212c7.66 25.267 24.04 42.795 47.305 52.56h.037l108.59 38.474c5.65-11.9 11.672-23.813 17.988-35.71a40.6 40.6 0 0 1-16.32 3.41c-22.52 0-40.78-18.262-40.78-40.782c0-22.518 18.26-40.78 40.78-40.78c20.66 0 37.697 15.373 40.373 35.3c10.666-18.062 21.885-36 33.48-53.683l-103.224-52.377l-4.746-5.732c-3.93-13.556-11.515-23.32-26.39-33.324c-14.876-10.002-37.034-19.57-67.784-30.623l-2.08-.767l-1.53-1.607c-23.283-24.532-42.7-32.278-56.202-32.024zm119.04 89.93c8.272 0 14.657 6.387 14.657 14.657c0 8.274-6.387 14.688-14.658 14.688c-8.27 0-14.687-6.414-14.687-14.687c0-8.27 6.416-14.655 14.687-14.655z"/></svg>
-                    </div>
-                    <h3>Leão</h3>
-                    <p class="history">Uma constelação zodiacal facilmente identificada por um desenho que lembra a cabeça e o peito de um leão. Sua estrela mais brilhante é Regulus. É uma das constelações mais antigas catalogadas e símbolo clássico do outono no céu noturno.</p>
-                    <div class="observe-info">
-                        <strong><i class="ri-calendar-event-line"></i> Melhor época:</strong> Outono/Inverno (Hemisfério Sul)
-                    </div>
-                </div>
+          <h2 class="section-title fade-up glow-text">Constelações Famosas</h2>
+          <div class="cards-grid">
+            <!-- Órion -->
+            <div class="constellation-card glass-card fade-up">
+              <div class="card-icon"><i class="ri-sword-line"></i></div>
+              <h3>Órion</h3>
+              <p class="history">
+                Conhecido como o Caçador na mitologia grega. Uma das mais
+                famosas do céu. Facilmente reconhecida pelas "Três Marias"
+                (asterismo que forma o cinturão do caçador). Abriga a gigante
+                superestrela vermelha Betelgeuse e a brilhante azul Rigel.
+              </p>
+              <div class="observe-info">
+                <strong
+                  ><i class="ri-calendar-event-line"></i> Melhor época:</strong
+                >
+                Verão (Hemisfério Sul)
+              </div>
             </div>
+            <!-- Ursa Maior -->
+            <div class="constellation-card glass-card fade-up">
+              <div class="card-icon"><i class="ri-bear-smile-line"></i></div>
+              <h3>Ursa Maior</h3>
+              <p class="history">
+                Uma das maiores e mais reconhecíveis do Hemisfério Norte. Sua
+                parte mais famosa é o asterismo da "Concha" ou "Carroça". As
+                duas estrelas da borda da concha apontam diretamente para a
+                Estrela Polar (que indica o Norte).
+              </p>
+              <div class="observe-info">
+                <strong
+                  ><i class="ri-calendar-event-line"></i> Melhor época:</strong
+                >
+                Outono (Hemisfério Norte)
+              </div>
+            </div>
+            <!-- Escorpião -->
+            <div class="constellation-card glass-card fade-up">
+              <div class="card-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 512 512"
+                  style="filter: drop-shadow(0 0 15px rgba(129, 140, 248, 0.6))"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M118.2 13.613c-9.34.05-18.525 2.977-25.878 9.2c-28.494-14.11-63.64.133-58.814 33.37C7.16 77.84 13.01 118.364 43.355 131.036c-.715 28.33 22.506 53.156 49.643 50.957c7.358 19.48 25.91 31.78 45.996 34.16q.15 3.53.63 7.235c-9.325 4.95-18.904 9.69-28.645 14.374l8.098 16.84c8.28-3.98 16.58-8.045 24.8-12.307c1.822 5.843 4.153 11.877 6.93 18.027c-9.202 4.788-18.57 9.436-28.048 14.037l8.16 16.814c9.49-4.607 18.984-9.31 28.394-14.195a240 240 0 0 0 11.393 18.067c-9.837 5.116-19.83 10.094-29.934 15.02l8.19 16.798c11.075-5.4 22.15-10.903 33.11-16.646a293 293 0 0 0 15.302 17.55c-12.022 6.36-24.303 12.478-36.713 18.54l8.203 16.794c14.22-6.947 28.442-14.04 42.432-21.567a270 270 0 0 0 14.6 12.547c-19.234 11.162-38.166 24.76-55.102 40.38l-4.783 4.41l2.478 6.017c6.126 14.866 12.37 27.647 19.33 38.534c16.73 43.73 117.658 67.51 169.87 49.974c-40.098-76.48-110.48-107.213-163.516-77.16a288 288 0 0 1-5.7-12.338c16.67-14.624 35.242-27.457 53.913-37.656c14.745 9.996 29.484 17.747 43.312 23.174a165 165 0 0 0 14.36-4.91c-5.082-4.966-10.262-10.56-15.505-16.832l14.34-11.985c6.706 8.026 13.247 14.75 19.41 20.267c9.148-5.032 17.394-10.79 24.644-17.03c-4.422-6.302-9.917-13.245-16.64-20.736l13.91-12.48c6.27 6.987 11.628 13.576 16.176 19.802c2.76-3.212 5.29-6.494 7.563-9.825c-2.275-9.77-6.05-20.19-11.212-30.927c4.547-14.812 10.333-29.638 17.244-43.776c4.26.62 8.324 1.297 12.215 2.03c-23.748 40.476 31.817 122.773 84.082 144.218c29.62-76.177 7.565-136.216-53.038-155.462c-13.592-4.834-29.27-8.007-47.555-10.31l-6.457-.815l-3.002 5.773c-6.094 11.72-11.37 23.9-15.847 36.21c-5.395-8.492-11.577-17.043-18.5-25.503a257 257 0 0 0 22.038-30.44l-15.903-9.816c-5.726 9.277-11.96 17.903-18.61 26a305 305 0 0 0-7.362-7.634a308 308 0 0 0-8.733-8.382a241 241 0 0 0 20.244-28.008l-15.892-9.83a221.6 221.6 0 0 1-18.477 25.58c-6-4.88-12.05-9.395-18.093-13.53a216 216 0 0 0 17.728-24.504l-15.875-9.86c-5.434 8.747-11.412 16.803-17.84 24.302c-6.575-3.778-13.08-7.073-19.443-9.856a175 175 0 0 0 13.912-19.146l-15.834-9.928c-5.074 8.093-10.74 15.45-16.895 22.223c-9.522-2.728-18.495-4.106-26.615-4.004c-.202.003-.398.017-.6.02c-15.792-17.983-44.215-24.07-67.113-15.15c-3.733-21.79-22.074-39.414-42.832-41.6c4.765-14.846 1.142-31.49-8.877-43.204c14.55-2 28.25-10.616 35.153-22.598c12.188 14.724 34.067 21.62 51.673 15.564c8.117 17.202 29.023 28.58 48.562 26.01c35.58 81.022 139.882 84.89 177.424 1.266c-36.924 23.267-66.726 3.737-89.6-26.473c-17.638-23.298-43.473-38.92-75.83-8.985c-10.208-15.318-30.848-23.5-49.33-18.993c-8.477-14.405-24.79-22.622-40.67-22.54z"
+                  />
+                </svg>
+              </div>
+              <h3>Escorpião</h3>
+              <p class="history">
+                Típica do inverno no Hemisfério Sul, destaca-se por seu formato
+                sinuoso que lembra o animal. Contém Antares, uma supergigante
+                vermelha de brilho intenso. Na mitologia, está associada à morte
+                de Órion.
+              </p>
+              <div class="observe-info">
+                <strong
+                  ><i class="ri-calendar-event-line"></i> Melhor época:</strong
+                >
+                Inverno (Hemisfério Sul)
+              </div>
+            </div>
+            <!-- Cruzeiro do Sul -->
+            <div class="constellation-card glass-card fade-up">
+              <div class="card-icon"><i class="ri-compass-3-line"></i></div>
+              <h3>Cruzeiro do Sul</h3>
+              <p class="history">
+                Fundamental para a localização geográfica no Hemisfério Sul,
+                suas quatro principais estrelas formam o desenho de uma cruz. É
+                muito importante para a navegação e é um dos principais símbolos
+                estampados na bandeira do Brasil.
+              </p>
+              <div class="observe-info">
+                <strong
+                  ><i class="ri-calendar-event-line"></i> Melhor época:</strong
+                >
+                Outono/Inverno (Hemisfério Sul)
+              </div>
+            </div>
+            <!-- Cassiopeia -->
+            <div class="constellation-card glass-card fade-up">
+              <div class="card-icon"><i class="ri-vip-crown-line"></i></div>
+              <h3>Cassiopeia</h3>
+              <p class="history">
+                Localizada no Hemisfério Norte, possui um formato inconfundível
+                de "W" ou "M", dependendo da época do ano. Fica próxima à
+                Estrela Polar e é muito rica em aglomerados estelares e nuvens
+                de gás devido à sua posição em relação à Via Láctea.
+              </p>
+              <div class="observe-info">
+                <strong
+                  ><i class="ri-calendar-event-line"></i> Melhor época:</strong
+                >
+                Outono (Hemisfério Norte)
+              </div>
+            </div>
+            <!-- Leão -->
+            <div class="constellation-card glass-card fade-up">
+              <div class="card-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 512 512"
+                  style="filter: drop-shadow(0 0 15px rgba(129, 140, 248, 0.6))"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M123.885 20.447c-10.348.467-21.337 3.146-32.194 5.366l62.492 65.628l-21.645.188c-29.376.187-75.695 6.154-103.555 22.303l31.756 51.576l-40.625 21.098v56.577l46.54 26.32l-46.54 40.076v32.268c28.217-1.233 60.63.636 89.135-8.907l31.902-10.658l-21.828 25.586c-18.76 22-29.782 55.133-50.736 87.713c31.91-2.394 63.352-7.65 96.8-25.81l16.026-8.683l-9.746 77.124c26.333-12.19 52.103-28.923 71.178-49.055c22.683-23.94 35.713-50.49 33.36-72.71l-.074-.75c-18.488-12.687-32.26-31.173-39.236-54.18c-8.414-27.753-5.867-62.33 6.643-101.145c-26.406-4.04-46.536-14.637-57.307-30.11c-12.33-17.716-14.222-39.26-7.738-57.018s22.29-32.165 43.437-33.4c20.558-1.195 44.48 10.033 69.972 36.102c11.368 4.11 21.73 8.034 31.14 11.94c2.434-21.395-1.46-38.033-10.408-52.9c-8.41-13.975-23.217-26.43-41.1-38.582l4.27 42.888l-16.425-10.985C222.37 43.57 168.973 18.49 123.885 20.597l.002-.225zm100.387 77.997c-.436.008-.866 0-1.29 0h-.002c-13.54.785-22.545 9.105-26.937 21.135c-4.393 12.03-3.243 27.353 5.51 39.93c8.755 12.576 25.128 23.158 53.548 24.784l12.595.69l-4.344 11.827c-14.837 40.46-16.242 73.928-8.577 99.212c7.66 25.267 24.04 42.795 47.305 52.56h.037l108.59 38.474c5.65-11.9 11.672-23.813 17.988-35.71a40.6 40.6 0 0 1-16.32 3.41c-22.52 0-40.78-18.262-40.78-40.782c0-22.518 18.26-40.78 40.78-40.78c20.66 0 37.697 15.373 40.373 35.3c10.666-18.062 21.885-36 33.48-53.683l-103.224-52.377l-4.746-5.732c-3.93-13.556-11.515-23.32-26.39-33.324c-14.876-10.002-37.034-19.57-67.784-30.623l-2.08-.767l-1.53-1.607c-23.283-24.532-42.7-32.278-56.202-32.024zm119.04 89.93c8.272 0 14.657 6.387 14.657 14.657c0 8.274-6.387 14.688-14.658 14.688c-8.27 0-14.687-6.414-14.687-14.687c0-8.27 6.416-14.655 14.687-14.655z"
+                  />
+                </svg>
+              </div>
+              <h3>Leão</h3>
+              <p class="history">
+                Uma constelação zodiacal facilmente identificada por um desenho
+                que lembra a cabeça e o peito de um leão. Sua estrela mais
+                brilhante é Regulus. É uma das constelações mais antigas
+                catalogadas e símbolo clássico do outono no céu noturno.
+              </p>
+              <div class="observe-info">
+                <strong
+                  ><i class="ri-calendar-event-line"></i> Melhor época:</strong
+                >
+                Outono/Inverno (Hemisfério Sul)
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- 3. Jogo Interativo do Céu -->
-    <section id="mapa-interativo" class="section-padding">
+      <!-- 3. Jogo Interativo do Céu -->
+      <section id="mapa-interativo" class="section-padding">
         <div class="container fade-up game-section">
-            <h2 class="section-title glow-text">Monte sua Constelação</h2>
-            <p class="text-center mb-4">Selecione uma constelação e arraste as estrelas do painel para as áreas tracejadas no mapa estelar. Construa o céu com as próprias mãos!</p>
-            
-            <div class="controls glass-card">
-                <label for="constellation-select">Escolha a Constelação:</label>
-                <select id="constellation-select">
-                    <option value="orion">Órion</option>
-                    <option value="ursa_major">Ursa Maior</option>
-                    <option value="cruzeiro_sul">Cruzeiro do Sul</option>
-                    <option value="escorpiao">Escorpião</option>
-                </select>
-                <button id="reset-btn" class="cta-btn" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">Reiniciar</button>
+          <h2 class="section-title glow-text">Monte sua Constelação</h2>
+          <p class="text-center mb-4">
+            Selecione uma constelação e arraste as estrelas do painel para as
+            áreas tracejadas no mapa estelar. Construa o céu com as próprias
+            mãos!
+          </p>
+
+          <div class="controls glass-card">
+            <label for="constellation-select">Escolha a Constelação:</label>
+            <select id="constellation-select">
+              <option value="orion">Órion</option>
+              <option value="ursa_major">Ursa Maior</option>
+              <option value="cruzeiro_sul">Cruzeiro do Sul</option>
+              <option value="escorpiao">Escorpião</option>
+            </select>
+            <button
+              type="button"
+              id="reset-btn"
+              class="cta-btn"
+              style="padding: 0.5rem 1.5rem; font-size: 0.9rem"
+            >
+              Reiniciar
+            </button>
+          </div>
+
+          <div class="game-container">
+            <div class="star-map glass-card" id="dropzone-container">
+              <!-- Dropzones will be dynamically added here by JS -->
             </div>
 
-            <div class="game-container">
-                <div class="star-map glass-card" id="dropzone-container">
-                    <!-- Dropzones will be dynamically added here by JS -->
-                </div>
-                
-                <div class="stars-bank glass-card" id="stars-bank">
-                    <!-- Draggable stars will be added here by JS -->
-                </div>
+            <div class="stars-bank glass-card" id="stars-bank">
+              <!-- Draggable stars will be added here by JS -->
             </div>
+          </div>
 
-            <div id="success-message" class="hidden glass-card success-card">
-                <h3 class="glow-text" style="color: #6ee7b7; text-align: center;">Parabéns! Você construiu a constelação!</h3>
-            </div>
+          <div
+            id="success-message"
+            class="hidden glass-card success-card"
+            aria-live="polite"
+          >
+            <h3 class="glow-text" style="color: #6ee7b7; text-align: center">
+              Parabéns! Você construiu a constelação!
+            </h3>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- 3.5. Mapa de Observação Passiva (Hover) -->
-    <section id="observacao-livre" class="section-padding bingo-section">
+      <!-- 3.5. Mapa de Observação Passiva (Hover) -->
+      <section id="observacao-livre" class="section-padding bingo-section">
         <div class="container fade-up">
-            <h2 class="section-title glow-text">Observação Livre</h2>
-            <p class="text-center mb-4">Passe o mouse pelo mapa abaixo para descobrir as constelações de <strong>Cassiopeia</strong> e <strong>Leão</strong> ocultas no céu noturno.</p>
-            
-            <div class="interactive-map-container glass-card">
-                <canvas id="hover-sky-map"></canvas>
-                <div id="star-tooltip" class="tooltip hidden">
-                    <h4 id="tt-name">Nome da Estrela</h4>
-                    <p id="tt-constellation">Constelação</p>
-                </div>
-            </div>
-        </div>
-    </section>
+          <h2 class="section-title glow-text">Observação Livre</h2>
+          <p class="text-center mb-4">
+            Passe o mouse pelo mapa abaixo para descobrir as constelações de
+            <strong>Cassiopeia</strong> e <strong>Leão</strong> ocultas no céu
+            noturno.
+          </p>
 
-    <!-- 4. Curiosidades astronômicas -->
-    <section id="curiosidades" class="section-padding">
+          <div class="interactive-map-container glass-card">
+            <canvas id="hover-sky-map"></canvas>
+            <div id="star-tooltip" class="tooltip hidden">
+              <h4 id="tt-name">Nome da Estrela</h4>
+              <p id="tt-constellation">Constelação</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Curiosidades astronômicas -->
+      <section id="curiosidades" class="section-padding">
         <div class="container">
-            <h2 class="section-title fade-up glow-text">Curiosidades Astronômicas</h2>
-            <div class="curiosity-grid">
-                <div class="curiosity-item glass-card fade-up">
-                    <i class="ri-translate icon-glow"></i>
-                    <h3>Origem dos Nomes</h3>
-                    <p>A maioria das constelações oficiais hoje vem da Grécia Antiga, compiladas por Ptolomeu, e de navegadores europeus do século XVI.</p>
-                </div>
-                <div class="curiosity-item glass-card fade-up">
-                    <i class="ri-ancient-gate-line icon-glow"></i>
-                    <h3>Mitologia</h3>
-                    <p>Muitas culturas olhavam as mesmas estrelas e viam coisas diferentes. Onde os gregos viam o Cruzeiro do Sul, os povos indígenas brasileiros viam uma Ema.</p>
-                </div>
-                <div class="curiosity-item glass-card fade-up">
-                    <i class="ri-ship-line icon-glow"></i>
-                    <h3>Navegação</h3>
-                    <p>Antes do GPS, as constelações eram o mapa do mundo. A Estrela Polar indicava o Norte, e o Cruzeiro do Sul indicava o Pólo Sul Celeste.</p>
-                </div>
+          <h2 class="section-title fade-up glow-text">
+            Curiosidades Astronômicas
+          </h2>
+          <div class="curiosity-grid">
+            <div class="curiosity-item glass-card fade-up">
+              <i class="ri-translate icon-glow"></i>
+              <h3>Origem dos Nomes</h3>
+              <p>
+                A maioria das constelações oficiais hoje vem da Grécia Antiga,
+                compiladas por Ptolomeu, e de navegadores europeus do século
+                XVI.
+              </p>
             </div>
+            <div class="curiosity-item glass-card fade-up">
+              <i class="ri-ancient-gate-line icon-glow"></i>
+              <h3>Mitologia</h3>
+              <p>
+                Muitas culturas olhavam as mesmas estrelas e viam coisas
+                diferentes. Onde os gregos viam o Cruzeiro do Sul, os povos
+                indígenas brasileiros viam uma Ema.
+              </p>
+            </div>
+            <div class="curiosity-item glass-card fade-up">
+              <i class="ri-ship-line icon-glow"></i>
+              <h3>Navegação</h3>
+              <p>
+                Antes do GPS, as constelações eram o mapa do mundo. A Estrela
+                Polar indicava o Norte, e o Cruzeiro do Sul indicava o Pólo Sul
+                Celeste.
+              </p>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- 5. Guia de observação -->
-    <section id="guia" class="section-padding">
+      <!-- 5. Guia de observação -->
+      <section id="guia" class="section-padding">
         <div class="container fade-up glass-card guide-box">
-            <h2 class="section-title glow-text">Guia Prático de Observação</h2>
-            <ul class="guide-list">
-                <li><i class="ri-time-line"></i> <strong>Melhor Horário:</strong> Vá observar de madrugada ou em noites sem lua. A luz da lua ofusca as estrelas mais fracas.</li>
-                <li><i class="ri-cloud-windy-line"></i> <strong>Condições Ideais:</strong> Afaste-se das cidades. A poluição luminosa e o tempo nublado são os maiores inimigos da astronomia.</li>
-                <li><i class="ri-smartphone-line"></i> <strong>Aplicativos Úteis:</strong> Use apps como Stellarium, Sky Map ou Star Walk. Basta apontar o celular para o céu!</li>
-                <li><i class="ri-eye-line"></i> <strong>Aclimatação:</strong> Seus olhos demoram cerca de 20 minutos para se acostumar totalmente à escuridão. Evite olhar para o celular brilhante.</li>
-            </ul>
+          <h2 class="section-title glow-text">Guia Prático de Observação</h2>
+          <ul class="guide-list">
+            <li>
+              <i class="ri-time-line"></i> <strong>Melhor Horário:</strong> Vá
+              observar de madrugada ou em noites sem lua. A luz da lua ofusca as
+              estrelas mais fracas.
+            </li>
+            <li>
+              <i class="ri-cloud-windy-line"></i>
+              <strong>Condições Ideais:</strong> Afaste-se das cidades. A
+              poluição luminosa e o tempo nublado são os maiores inimigos da
+              astronomia.
+            </li>
+            <li>
+              <i class="ri-smartphone-line"></i>
+              <strong>Aplicativos Úteis:</strong> Use apps como Stellarium, Sky
+              Map ou Star Walk. Basta apontar o celular para o céu!
+            </li>
+            <li>
+              <i class="ri-eye-line"></i> <strong>Aclimatação:</strong> Seus
+              olhos demoram cerca de 20 minutos para se acostumar totalmente à
+              escuridão. Evite olhar para o celular brilhante.
+            </li>
+          </ul>
         </div>
-    </section>
+      </section>
 
-    <!-- 6. Rodapé -->
+      <!-- 6. Rodapé -->
+    </main>
     <footer>
-        <div class="container footer-content">
-            <div class="footer-quote">
-                <p>"Olhar para as estrelas é olhar para o passado do universo."</p>
-            </div>
-            <div class="social-links">
-                <a href="https://github.com/ugocavalcantif"><i class="ri-github-fill"></i></a>          
-            </div>
-            <p class="copyright">&copy; 2026 Projeto BINGO & Constelações. Desenvolvido por Ugo Cavalcanti Filho.</p>
+      <div class="container footer-content">
+        <div class="footer-quote">
+          <p>"Olhar para as estrelas é olhar para o passado do universo."</p>
         </div>
+        <div class="social-links">
+          <a href="https://github.com/ugocavalcantif"
+            ><i class="ri-github-fill"></i
+          ></a>
+        </div>
+        <p class="copyright">
+          &copy; 2026 Projeto BINGO & Constelações. Desenvolvido por Ugo
+          Cavalcanti Filho.
+        </p>
+      </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
