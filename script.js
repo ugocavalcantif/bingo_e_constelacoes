@@ -256,11 +256,6 @@ document.addEventListener("DOMContentLoaded", () => {
       dropzone.appendChild(dropzoneLabel);
 
       dropzoneContainer.appendChild(dropzone);
-
-      dropzone.addEventListener("dragover", dragOver);
-      dropzone.addEventListener("dragenter", dragEnter);
-      dropzone.addEventListener("dragleave", dragLeave);
-      dropzone.addEventListener("drop", dragDrop);
     });
 
     let starsToCreate = [...data.stars].sort(() => Math.random() - 0.5);
@@ -268,7 +263,6 @@ document.addEventListener("DOMContentLoaded", () => {
     starsToCreate.forEach((star, index) => {
       const starEl = document.createElement("div");
       starEl.classList.add("star");
-      starEl.setAttribute("draggable", "true");
       starEl.dataset.targetId = star.id;
       starEl.id = `draggable-${index}`;
 
@@ -277,12 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
       starLabel.textContent = star.name;
       starEl.appendChild(starLabel);
 
-      starEl.addEventListener("dragstart", dragStart);
-      starEl.addEventListener("dragend", dragEnd);
-      starEl.addEventListener("pointerdown", pointerStart);
-      starEl.addEventListener("touchstart", (event) => event.preventDefault(), {
-        passive: false,
-      });
+      starEl.addEventListener("pointerdown", pointerStart, { passive: false });
 
       starsBank.appendChild(starEl);
     });
@@ -290,20 +279,21 @@ document.addEventListener("DOMContentLoaded", () => {
     resizeCanvas();
   }
 
-  let draggedItem = null;
   let touchDragStar = null;
-  let pointerOffset = { x: 0, y: 0 };
+  let activePointerId = null;
   let pointerActive = false;
+  let dragStarSize = { width: 0, height: 0 };
+  let dragContainer = null;
+  let containerRect = null;
 
   function resetStarPosition(starEl) {
     starEl.classList.remove("dragging");
     starEl.style.position = "";
     starEl.style.left = "";
     starEl.style.top = "";
-    starEl.style.width = "";
-    starEl.style.height = "";
-    starEl.style.pointerEvents = "";
+    starEl.style.transform = "";
     starEl.style.zIndex = "";
+    starEl.style.pointerEvents = "";
 
     if (!starEl.classList.contains("placed")) {
       starsBank.appendChild(starEl);
@@ -313,16 +303,15 @@ document.addEventListener("DOMContentLoaded", () => {
   function finalizeStarPlacement(starEl, dropzone) {
     dropzone.appendChild(starEl);
     dropzone.classList.add("filled");
-    starEl.setAttribute("draggable", "false");
     starEl.classList.add("placed");
+    starEl.setAttribute("draggable", "false");
     starEl.style.cursor = "default";
     starEl.style.position = "";
     starEl.style.left = "";
     starEl.style.top = "";
-    starEl.style.width = "";
-    starEl.style.height = "";
-    starEl.style.pointerEvents = "";
+    starEl.style.transform = "";
     starEl.style.zIndex = "";
+    starEl.style.pointerEvents = "";
 
     placedStars[dropzone.dataset.id] = true;
     drawLines();
@@ -340,52 +329,103 @@ document.addEventListener("DOMContentLoaded", () => {
 
     e.preventDefault();
     touchDragStar = this;
+    activePointerId = e.pointerId;
     pointerActive = true;
     touchDragStar.classList.add("dragging");
-    const rect = touchDragStar.getBoundingClientRect();
-    pointerOffset.x = e.clientX - rect.left;
-    pointerOffset.y = e.clientY - rect.top;
-
-    touchDragStar.style.position = "fixed";
-    touchDragStar.style.left = `${rect.left}px`;
-    touchDragStar.style.top = `${rect.top}px`;
-    touchDragStar.style.width = `${rect.width}px`;
-    touchDragStar.style.height = `${rect.height}px`;
-    touchDragStar.style.pointerEvents = "none";
     touchDragStar.style.zIndex = "1000";
+    touchDragStar.style.pointerEvents = "none";
 
-    if (e.pointerId) {
-      touchDragStar.setPointerCapture?.(e.pointerId);
+    dragContainer =
+      document.querySelector(".game-section") || dropzoneContainer;
+    containerRect = dragContainer.getBoundingClientRect();
+    const starRect = touchDragStar.getBoundingClientRect();
+    dragStarSize.width = starRect.width;
+    dragStarSize.height = starRect.height;
+
+    const x = e.clientX - containerRect.left - dragStarSize.width / 2;
+    const y = e.clientY - containerRect.top - dragStarSize.height / 2;
+
+    console.log({
+      clientX: e.clientX,
+      clientY: e.clientY,
+      rectLeft: containerRect.left,
+      rectTop: containerRect.top,
+      finalX: x,
+      finalY: y,
+      container: dragContainer.id || dragContainer.className,
+    });
+
+    dragContainer.appendChild(touchDragStar);
+    touchDragStar.style.position = "absolute";
+    touchDragStar.style.left = `${x}px`;
+    touchDragStar.style.top = `${y}px`;
+    touchDragStar.style.transform = "translate(0, 0)";
+
+    if (touchDragStar.setPointerCapture) {
+      touchDragStar.setPointerCapture(activePointerId);
     }
 
-    document.addEventListener("pointermove", pointerMove);
-    document.addEventListener("pointerup", pointerEnd);
+    document.addEventListener("pointermove", pointerMove, { passive: false });
+    document.addEventListener("pointerup", pointerEnd, { passive: false });
+    document.addEventListener("pointercancel", pointerEnd, { passive: false });
   }
 
   function pointerMove(e) {
-    if (!pointerActive || !touchDragStar) return;
+    if (!pointerActive || !touchDragStar || e.pointerId !== activePointerId)
+      return;
     e.preventDefault();
-    const x = e.clientX - pointerOffset.x;
-    const y = e.clientY - pointerOffset.y;
+
+    if (!containerRect) {
+      containerRect = dragContainer
+        ? dragContainer.getBoundingClientRect()
+        : dropzoneContainer.getBoundingClientRect();
+    }
+
+    const x = e.clientX - containerRect.left - dragStarSize.width / 2;
+    const y = e.clientY - containerRect.top - dragStarSize.height / 2;
+
+    console.log({
+      clientX: e.clientX,
+      clientY: e.clientY,
+      rectLeft: containerRect.left,
+      rectTop: containerRect.top,
+      finalX: x,
+      finalY: y,
+    });
+
     touchDragStar.style.left = `${x}px`;
     touchDragStar.style.top = `${y}px`;
+
+    const currentDropzone = getDropzoneAtPoint(e.clientX, e.clientY);
+    document.querySelectorAll(".dropzone").forEach((zone) => {
+      zone.classList.toggle("highlight", zone === currentDropzone);
+    });
   }
 
   function pointerEnd(e) {
-    if (!pointerActive || !touchDragStar) return;
-    e.preventDefault();
+    if (!pointerActive || !touchDragStar || e.pointerId !== activePointerId)
+      return;
+
+    if (touchDragStar.releasePointerCapture) {
+      touchDragStar.releasePointerCapture(activePointerId);
+    }
+
     document.removeEventListener("pointermove", pointerMove);
     document.removeEventListener("pointerup", pointerEnd);
+    document.removeEventListener("pointercancel", pointerEnd);
 
     const dropzone = getDropzoneAtPoint(e.clientX, e.clientY);
     const starEl = touchDragStar;
 
-    if (e.pointerId) {
-      starEl.releasePointerCapture?.(e.pointerId);
-    }
-
     touchDragStar = null;
     pointerActive = false;
+    activePointerId = null;
+    containerRect = null;
+    dragContainer = null;
+
+    document.querySelectorAll(".dropzone").forEach((zone) => {
+      zone.classList.remove("highlight");
+    });
 
     if (
       dropzone &&
@@ -395,53 +435,6 @@ document.addEventListener("DOMContentLoaded", () => {
       finalizeStarPlacement(starEl, dropzone);
     } else {
       resetStarPosition(starEl);
-    }
-  }
-
-  function dragStart(e) {
-    draggedItem = this;
-    setTimeout(() => this.classList.add("dragging"), 0);
-    e.dataTransfer.setData("text/plain", this.dataset.targetId);
-    e.dataTransfer.setData("elementId", this.id);
-  }
-
-  function dragEnd() {
-    this.classList.remove("dragging");
-    draggedItem = null;
-  }
-
-  function dragOver(e) {
-    e.preventDefault();
-  }
-
-  function dragEnter(e) {
-    e.preventDefault();
-    this.classList.add("drag-over");
-  }
-
-  function dragLeave() {
-    this.classList.remove("drag-over");
-  }
-
-  function dragDrop(e) {
-    this.classList.remove("drag-over");
-
-    const targetId = e.dataTransfer.getData("text/plain");
-    const elementId = e.dataTransfer.getData("elementId");
-    const dropzoneId = this.dataset.id;
-
-    if (targetId === dropzoneId && !this.classList.contains("filled")) {
-      const starEl = document.getElementById(elementId);
-
-      this.appendChild(starEl);
-      this.classList.add("filled");
-      starEl.setAttribute("draggable", "false");
-      starEl.classList.add("placed");
-      starEl.style.cursor = "default";
-
-      placedStars[dropzoneId] = true;
-      drawLines();
-      checkWin();
     }
   }
 
