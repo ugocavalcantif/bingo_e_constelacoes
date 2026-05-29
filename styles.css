@@ -865,3 +865,14 @@ body {
   }
 
 }
+
+/* =========================================
+   REMOVE BOLINHAS DO MENU
+========================================= */
+
+header ul,
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
